@@ -18,7 +18,9 @@ final class APIService {
             switch result {
             case let .success(data):
                 let movieList = self?.parseJson(data: data)
-                _ = self?.downloadToImage(from: movieList!)
+                self?.fetchImageUrl(from: movieList, completion: { models in
+                    completion(.success(models))
+                })
             case let .failure(error):
                 completion(.failure(error))
             }
@@ -36,8 +38,18 @@ final class APIService {
         }
     }
     
-    private func downloadToImage(from: BoxOfficeEntity) -> [String] {
-        // api를 호출하여 얻은 string을 배열에 저장한다
-        // 두개의 배열을 이중 mapping하여 새로운 모델에 저장한다
+    private func fetchImageUrl(from: BoxOfficeEntity?, completion: @escaping ([MovieModel]) -> Void) {
+        var models = [MovieModel]()
+        from?.boxOfficeResult.dailyBoxOfficeList.forEach { movie in
+            repository.posterFetch(term: "avengers") { str in
+                let model = MovieModel(rank: movie.rank,
+                                       title: movie.title,
+                                       date: movie.openDate,
+                                       thumbnail: str ?? "")
+                models.append(model)
+                guard models.count == from?.boxOfficeResult.dailyBoxOfficeList.count else { return }
+                completion(models)
+            }
+        }
     }
 }

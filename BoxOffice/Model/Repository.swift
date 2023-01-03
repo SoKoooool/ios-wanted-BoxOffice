@@ -37,7 +37,7 @@ final class Repository {
     }
     
     func posterFetch(term: String, completion: @escaping (String?) -> Void) {
-        let urlString = posterUrl + posterApiKey + "&i=" + term
+        let urlString = posterUrl + posterApiKey + "&t=" + term
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
@@ -52,6 +52,10 @@ final class Repository {
             
             struct Poster: Decodable {
                 let poster: String?
+                
+                enum CodingKeys: String, CodingKey {
+                    case poster = "Poster"
+                }
             }
             let decodeData = try? JSONDecoder().decode(Poster.self, from: data)
             completion(decodeData?.poster)
