@@ -8,32 +8,29 @@
 import Foundation
 
 struct BoxOfficeEntity: Decodable {
-    let boxOfficeResult: BoxOffice
+    let boxOfficeResult: BoxOfficeResult
+    
+    struct BoxOfficeResult: Decodable {
+        let dailyBoxOfficeList: [DailyBoxOfficeList]
+        
+        struct DailyBoxOfficeList: Decodable {
+            let openDate: String
+            let title: String
+            let count: String
+            let rank: String
+            let imdbId: String
+            
+            enum CodingKeys: String, CodingKey {
+                case openDate = "openDt"
+                case title = "movieNm"
+                case count = "audiAcc"
+                case rank
+                case imdbId = "movieCd"
+            }
+        }
+    }
 }
 
-struct BoxOffice: Decodable {
-    let boxofficeType: String
-    let showRange: String
-    let dailyBoxOfficeList: [DailyBoxoffice]
-}
 
-struct DailyBoxoffice: Decodable {
-    let rnum: String
-    let rank: String
-    let rankInten: String
-    let rankOldAndNew: String
-    let movieCd: String
-    let movieNm: String
-    let openDt: String
-    let salesAmt: String
-    let salesShare: String
-    let salesInten: String
-    let salesChange: String
-    let salesAcc: String
-    let audiCnt: String
-    let audiInten: String
-    let audiChange: String
-    let audiAcc: String
-    let scrnCnt: String
-    let showCnt: String
-}
+
+
