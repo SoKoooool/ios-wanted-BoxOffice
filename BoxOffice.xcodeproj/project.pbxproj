@@ -19,6 +19,7 @@
 		FFC6EC0D2962F1EF0042FC8E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC0C2962F1EF0042FC8E /* APIService.swift */; };
 		FFC6EC102963E7500042FC8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC0F2963E7500042FC8E /* Constants.swift */; };
 		FFC6EC12296402BA0042FC8E /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC11296402BA0042FC8E /* MovieModel.swift */; };
+		FFC6EC16296451740042FC8E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC15296451740042FC8E /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FFC6EC0C2962F1EF0042FC8E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		FFC6EC0F2963E7500042FC8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFC6EC11296402BA0042FC8E /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		FFC6EC15296451740042FC8E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				FFC6EC0F2963E7500042FC8E /* Constants.swift */,
+				FFC6EC15296451740042FC8E /* Observable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				FFC6EC092962F1D90042FC8E /* BoxOfficeEntity.swift in Sources */,
 				635A19EA28F9603900197BCC /* SceneDelegate.swift in Sources */,
 				FFC6EC052962F1B30042FC8E /* MovieListViewController.swift in Sources */,
+				FFC6EC16296451740042FC8E /* Observable.swift in Sources */,
 				FFC6EC0D2962F1EF0042FC8E /* APIService.swift in Sources */,
 				FFC6EC072962F1CC0042FC8E /* MovieListViewModel.swift in Sources */,
 				FFC6EC102963E7500042FC8E /* Constants.swift in Sources */,

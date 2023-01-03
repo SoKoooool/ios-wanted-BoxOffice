@@ -11,11 +11,13 @@ final class MovieListViewModel {
  
     private let service = APIService()
     
+    var movieList: Observable<[MovieModel]?>?
+    
     func onFetch() {
-        service.fetch { result in
+        service.fetch { [weak self] result in
             switch result {
             case let .success(movieList):
-                print(movieList)
+                self?.movieList?.value = movieList
             case let .failure(error):
                 print(error)
             }
