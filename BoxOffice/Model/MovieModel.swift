@@ -12,4 +12,5 @@ struct MovieModel {
     let title: String
     let date: String
     let thumbnail: String
+    let reply: MovieReply?
 }

@@ -45,7 +45,8 @@ final class APIService {
                 let model = MovieModel(rank: movie.rank,
                                        title: movie.title,
                                        date: movie.openDate,
-                                       thumbnail: str ?? "")
+                                       thumbnail: str ?? "",
+                                       reply: nil)
                 models.append(model)
                 guard models.count == from?.boxOfficeResult.dailyBoxOfficeList.count else { return }
                 completion(models)

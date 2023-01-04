@@ -20,6 +20,7 @@
 		FFC6EC102963E7500042FC8E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC0F2963E7500042FC8E /* Constants.swift */; };
 		FFC6EC12296402BA0042FC8E /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC11296402BA0042FC8E /* MovieModel.swift */; };
 		FFC6EC16296451740042FC8E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC15296451740042FC8E /* Observable.swift */; };
+		FFC6EC1829654DF90042FC8E /* MovieReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC6EC1729654DF90042FC8E /* MovieReply.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FFC6EC0F2963E7500042FC8E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FFC6EC11296402BA0042FC8E /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		FFC6EC15296451740042FC8E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		FFC6EC1729654DF90042FC8E /* MovieReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReply.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				FFC6EC0A2962F1E30042FC8E /* Repository.swift */,
 				FFC6EC0C2962F1EF0042FC8E /* APIService.swift */,
 				FFC6EC11296402BA0042FC8E /* MovieModel.swift */,
+				FFC6EC1729654DF90042FC8E /* MovieReply.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC6EC1829654DF90042FC8E /* MovieReply.swift in Sources */,
 				FFC6EC12296402BA0042FC8E /* MovieModel.swift in Sources */,
 				FFC6EC0B2962F1E30042FC8E /* Repository.swift in Sources */,
 				635A19E828F9603900197BCC /* AppDelegate.swift in Sources */,
