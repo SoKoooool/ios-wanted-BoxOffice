@@ -37,18 +37,21 @@ final class APIService {
             return nil
         }
     }
-    
+
     private func fetchImageUrl(from: BoxOfficeEntity?, completion: @escaping ([MovieModel]) -> Void) {
         var models = [MovieModel]()
+        
         from?.boxOfficeResult.dailyBoxOfficeList.forEach { movie in
-            repository.posterFetch(term: "avengers") { str in
+            
+            repository.posterFetch(term: movie.title) { urlString in
                 let model = MovieModel(rank: movie.rank,
                                        title: movie.title,
                                        date: movie.openDate,
-                                       thumbnail: str ?? "",
+                                       thumbnail: urlString ?? "",
                                        reply: nil)
                 models.append(model)
                 guard models.count == from?.boxOfficeResult.dailyBoxOfficeList.count else { return }
+                
                 completion(models)
             }
         }
