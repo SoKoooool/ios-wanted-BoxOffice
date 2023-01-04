@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MovieReply {
+struct MovieReply: Codable {
     let id: String
     let password: String
     let content: String
