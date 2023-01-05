@@ -43,14 +43,15 @@ final class APIService {
         
         from?.boxOfficeResult.dailyBoxOfficeList.forEach { movie in
             
-            repository.posterFetch(term: movie.title) { urlString in
+            repository.posterFetch(term: "avengers") { urlString in
                 let model = MovieModel(rank: movie.rank,
                                        title: movie.title,
                                        date: movie.openDate,
                                        thumbnail: urlString ?? "",
                                        reply: nil)
                 models.append(model)
-                guard models.count == from?.boxOfficeResult.dailyBoxOfficeList.count else { return }
+                guard models.count == from?.boxOfficeResult.dailyBoxOfficeList.count else {
+                    return }
                 
                 completion(models)
             }

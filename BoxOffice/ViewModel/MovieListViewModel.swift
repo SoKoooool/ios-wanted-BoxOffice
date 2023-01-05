@@ -12,8 +12,8 @@ final class MovieListViewModel {
     private let service = APIService()
     private let storageManager = StorageManager()
     
-    private var apiMovieList: [MovieModel]?
-    private var storageMovieList: [MovieModel]?
+    private var apiList: [MovieModel]?
+    private var storageList: [MovieModel]?
     
     var movieListWithReply: [MovieModel]?
     
@@ -21,9 +21,14 @@ final class MovieListViewModel {
         service.fetch { [weak self] result in
             switch result {
             case let .success(movieList):
-                self?.apiMovieList = movieList
+                self?.apiList = movieList
+                print(self?.apiList)
                 self?.onStorageFetch()
+//                print(self?.storageList)
+//                self?.storageList = movieList
                 self?.movieListWithReply = self?.checkSavedList()
+                print(self?.movieListWithReply?.count)
+//                print(self?.movieListWithReply)
             case let .failure(error):
                 print(error)
             }
@@ -43,21 +48,27 @@ final class MovieListViewModel {
     
     private func onStorageFetch() {
         storageManager.fetchMovieList { [weak self] models in
-            self?.storageMovieList = models
+            self?.storageList = models
         }
     }
 
     private func checkSavedList() -> [MovieModel] {
-        var models = [MovieModel]()
-        apiMovieList?.forEach { api in
-            storageMovieList?.forEach { storage in
-                if api.title == storage.title {
-                    models.append(storage)
-                } else {
-                    models.append(api)
-                }
+        var withReplyList = [MovieModel]()
+        guard let storageList = storageList else {
+            withReplyList = apiList!
+            return withReplyList
+        }
+        
+        apiList?.forEach { api in
+            if storageList.contains(where: { storage in
+                api.title == storage.title
+            }) {
+                print("포함")
+            } else {
+                print("미포함")
+                withReplyList.append(api)
             }
         }
-        return models
+        return withReplyList
     }
 }
